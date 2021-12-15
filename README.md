@@ -2,6 +2,9 @@
 
 ## What this app does
 - Provides a searchable list of climbing spots
+<img width="369" alt="Screenshot 2021-12-15 at 17 36 15" src="https://user-images.githubusercontent.com/28805811/146236700-2c615e37-1927-45d5-898f-f897552652d0.png">
+
+
 
 ## Tech stack
 - Expo tooling environment
