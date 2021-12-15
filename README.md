@@ -9,6 +9,8 @@
 - StyledComponents
 
 ## To run locally
+- Clone the repo
+- Run `yarn install`
 - Run the command `expo start` which automatically opens the browser to `http://localhost:19002/`.
 - Choose to run the App from one of the available options.
 
