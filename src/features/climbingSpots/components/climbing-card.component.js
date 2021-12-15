@@ -1,8 +1,28 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
-import { Avatar, Button, Card, Text, Paragraph } from 'react-native-paper';
+import styled from "styled-components/native";
+import { View } from "react-native";
+import { Avatar, Button, Text, Paragraph, Card } from 'react-native-paper';
 
 const StarRating = props => <Avatar.Icon {...props} icon="star" />
+
+const ClimbingView = styled(View)`
+  width: 100%;
+`
+const StyledCard = styled(Card)`
+  background: white;
+  border-radius: 8px;
+`
+const ClimbingTitle = styled(Card.Title)`
+  padding: 16px;
+  color: black;
+`
+const ClimbingCover = styled(Card.Cover)`
+  margin: 16px;
+  background: white;
+`
+
+const ClimbingContent = styled(Card.Content)``
+
 
 export const ClimbingCard = ({ climbingSpot = {} }) => {
 
@@ -16,34 +36,22 @@ export const ClimbingCard = ({ climbingSpot = {} }) => {
   } = climbingSpot;
 
   return (
-    <View style={styles.container}>
-      <Card elevation={5} style={styles.card}>
-        <Card.Title title={name}
+    <ClimbingView>
+      <StyledCard elevation={5}>
+        <ClimbingTitle
+          title={name}
           left={false} // or icon, StarRating
         />
-        <Card.Cover key={name} style={styles.cover} source={{ uri: photos[0] }}/>
-        <Card.Content>
+        <ClimbingCover key={name} source={{ uri: photos[0] }}/>
+        <ClimbingContent>
           <Text>{numberOfRoutes} routes</Text>
           <Text>{bestMonths}</Text>
           <Text>{address}</Text>
-        </Card.Content>
+        </ClimbingContent>
         <Card.Actions>
           <Button>See routes</Button>
         </Card.Actions>
-      </Card>
-    </View>
+      </StyledCard>
+    </ClimbingView>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    width: "100%"
-  },  
-  card: { 
-    backgroundColor: "white",
-  },
-  cover: {
-    margin: 16,
-    backgroundColor: "white",
-  },
-})
