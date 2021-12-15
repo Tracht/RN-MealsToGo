@@ -7,6 +7,8 @@ const StarRating = props => <Avatar.Icon {...props} icon="star" />
 
 const ClimbingView = styled(View)`
   width: 100%;
+  marginTop: ${(props) => props.theme.space[2]}
+  marginBottom: ${(props) => props.theme.space[2]}
 `
 const StyledCard = styled(Card)`
   background: ${(props) => props.theme.colors.white};
@@ -24,16 +26,16 @@ const Cover = styled(Card.Cover)`
 const Content = styled(Card.Content)``
 
 
-export const ClimbingCard = ({ climbingSpot = {} }) => {
+export const ClimbingCard = ({ name, photos, address, bestMonths, numRoutes }) => {
 
-  const { 
-    name = 'One Two Three', 
-    icon,
-    photos = ['https://www.backpackerswanderlust.com/wp-content/uploads/2021/03/ao-nang-to-railay-beach-5.jpg', 'https://www.backpackerswanderlust.com/wp-content/uploads/2021/03/ao-nang-to-railay-beach-2.jpg', ],
-    address = 'Railay Beach, Krabi, Thailand',
-    bestMonths = ['November - March'],
-    numberOfRoutes = 31,
-  } = climbingSpot;
+  // const { 
+  //   name = 'One Two Three', 
+  //   icon,
+  //   photos = ['https://www.backpackerswanderlust.com/wp-content/uploads/2021/03/ao-nang-to-railay-beach-5.jpg', 'https://www.backpackerswanderlust.com/wp-content/uploads/2021/03/ao-nang-to-railay-beach-2.jpg', ],
+  //   address = 'Railay Beach, Krabi, Thailand',
+  //   bestMonths = ['November - March'],
+  //   numberOfRoutes = 31,
+  // } = climbingSpot;
 
   return (
     <ClimbingView>
@@ -44,7 +46,7 @@ export const ClimbingCard = ({ climbingSpot = {} }) => {
         />
         <Cover key={name} source={{ uri: photos[0] }}/>
         <Content>
-          <Text>{numberOfRoutes} routes</Text>
+          <Text>{numRoutes} route{numRoutes === 1 ? '' : 's'}</Text>
           <Text>{bestMonths}</Text>
           <Text>{address}</Text>
         </Content>

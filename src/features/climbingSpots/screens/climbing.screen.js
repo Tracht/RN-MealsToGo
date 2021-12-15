@@ -1,8 +1,11 @@
 import React, {useState} from "react";
-import { StatusBar, SafeAreaView, View } from 'react-native';
-import { Searchbar } from 'react-native-paper';
-import { ClimbingCard } from "../components/climbing-card.component";
 import styled from "styled-components/native";
+import { StatusBar, SafeAreaView, View, FlatList } from 'react-native';
+import { Searchbar } from 'react-native-paper';
+// Components
+import { ClimbingCard } from "../components/climbing-card.component";
+// Data
+import { CLIMBING_SPOTS } from "../../../climbing-spot-list";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
@@ -22,6 +25,16 @@ export const ClimbingScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
 
+  const climbingCardItem = ({ item }) => ( // must be "item"
+    <ClimbingCard 
+      name={item.name}
+      photos={item.photos}
+      address={item.address}
+      bestMonths={item.bestMonths}
+      numRoutes={item.numRoutes}
+    />
+  );
+
   return (
     <SafeArea>
       <SearchContainer>
@@ -33,7 +46,11 @@ export const ClimbingScreen = () => {
       </SearchContainer> 
       
       <ClimbingListContainer>
-        <ClimbingCard />
+        <FlatList
+          data={CLIMBING_SPOTS}
+          renderItem={climbingCardItem}
+          keyExtractor={item => item.id}
+        />
       </ClimbingListContainer>
     </SafeArea>
   )
