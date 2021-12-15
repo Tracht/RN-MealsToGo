@@ -6,15 +6,15 @@ import styled from "styled-components/native";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
-  background-color: 'rgb(239,222,205)';
+  background-color: ${(props) => props.theme.colors.almond};
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
 `
 const SearchContainer = styled(View)`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
   justify-content: center;
 `
 const ClimbingListContainer = styled(View)`
-  padding: 16px;
+  padding: ${(props) => props.theme.space[3]};
 `
 
 export const ClimbingScreen = () => {

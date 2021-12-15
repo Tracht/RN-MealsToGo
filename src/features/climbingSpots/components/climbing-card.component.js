@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { View } from "react-native";
-import { Avatar, Button, Text, Paragraph, Card } from 'react-native-paper';
+import { Avatar, Button, Text, Card } from 'react-native-paper';
 
 const StarRating = props => <Avatar.Icon {...props} icon="star" />
 
@@ -9,19 +9,19 @@ const ClimbingView = styled(View)`
   width: 100%;
 `
 const StyledCard = styled(Card)`
-  background: white;
-  border-radius: 8px;
+  background: ${(props) => props.theme.colors.white};
+  border-radius: ${(props) => props.theme.sizes[0]};
 `
-const ClimbingTitle = styled(Card.Title)`
-  padding: 16px;
-  color: black;
+const Title = styled(Card.Title)`
+  padding: ${(props) => props.theme.space[3]};
+  color: ${(props) => props.theme.colors.darkGrey};
 `
-const ClimbingCover = styled(Card.Cover)`
-  margin: 16px;
-  background: white;
+const Cover = styled(Card.Cover)`
+  margin: ${(props) => props.theme.space[3]};
+  background: ${(props) => props.theme.colors.white};
 `
 
-const ClimbingContent = styled(Card.Content)``
+const Content = styled(Card.Content)``
 
 
 export const ClimbingCard = ({ climbingSpot = {} }) => {
@@ -38,16 +38,16 @@ export const ClimbingCard = ({ climbingSpot = {} }) => {
   return (
     <ClimbingView>
       <StyledCard elevation={5}>
-        <ClimbingTitle
+        <Title
           title={name}
           left={false} // or icon, StarRating
         />
-        <ClimbingCover key={name} source={{ uri: photos[0] }}/>
-        <ClimbingContent>
+        <Cover key={name} source={{ uri: photos[0] }}/>
+        <Content>
           <Text>{numberOfRoutes} routes</Text>
           <Text>{bestMonths}</Text>
           <Text>{address}</Text>
-        </ClimbingContent>
+        </Content>
         <Card.Actions>
           <Button>See routes</Button>
         </Card.Actions>
