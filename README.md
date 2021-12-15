@@ -1,4 +1,4 @@
-# MealsToGo, React Native Appe
+# MealsToGo, React Native App
 
 ## What this app does
 
