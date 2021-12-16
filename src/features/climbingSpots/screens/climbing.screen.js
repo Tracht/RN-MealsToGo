@@ -10,14 +10,17 @@ import { CLIMBING_SPOTS } from "../../../climbing-spot-list";
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
   background-color: ${(props) => props.theme.colors.almond};
+  /* android */
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
+  ${StatusBar.currentHeight && `padding-bottom: ${StatusBar.currentHeight * 3}px`};
 `
 const SearchContainer = styled(View)`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space.lg};
   justify-content: center;
 `
 const ClimbingListContainer = styled(View)`
-  padding: ${(props) => props.theme.space[3]};
+  padding: ${(props) => props.theme.space.lg};
+  paddingTop: ${(props) => props.theme.space.sm};
 `
 
 export const ClimbingScreen = () => {
@@ -32,6 +35,7 @@ export const ClimbingScreen = () => {
       address={item.address}
       bestMonths={item.bestMonths}
       numRoutes={item.numRoutes}
+      isOpen={item.isOpen}
     />
   );
 

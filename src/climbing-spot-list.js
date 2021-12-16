@@ -6,6 +6,7 @@ export const CLIMBING_SPOTS = [
     address : 'Railay Beach West, Krabi, Thailand',
     bestMonths : ['November - March'],
     numRoutes : 31,
+    isOpen: true,
   }, 
   { 
     id: 2,
@@ -14,6 +15,7 @@ export const CLIMBING_SPOTS = [
     address : 'Railay Beach West, Krabi, Thailand',
     bestMonths : ['November - March'],
     numRoutes : 4,
+    isOpen: false,
   }, 
   { 
     id: 3,
@@ -22,6 +24,7 @@ export const CLIMBING_SPOTS = [
     address : 'Railay Beach West, Krabi, Thailand',
     bestMonths : ['November - March'],
     numRoutes : 2,
+    isOpen: false,
   }, 
   { 
     id: 4,
@@ -30,6 +33,7 @@ export const CLIMBING_SPOTS = [
     address : 'Railay Beach West, Krabi, Thailand',
     bestMonths : ['November - March'],
     numRoutes : 18,
+    isOpen: true,
   }, 
   { 
     id: 5,
@@ -38,6 +42,7 @@ export const CLIMBING_SPOTS = [
     address : 'Railay Beach, Krabi, Thailand',
     bestMonths : ['November - March'],
     numRoutes : 25,
+    isOpen: false,
   }, 
   { 
     id: 6,
@@ -46,5 +51,6 @@ export const CLIMBING_SPOTS = [
     address : 'Railay Beach, Krabi, Thailand',
     bestMonths : ['November - March'],
     numRoutes : 1,
+    isOpen: false,
   },
 ]
