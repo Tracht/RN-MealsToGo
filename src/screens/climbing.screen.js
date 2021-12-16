@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import styled from "styled-components/native";
-import { StatusBar, SafeAreaView, View, FlatList } from 'react-native';
+import { StatusBar, SafeAreaView, View, FlatList, Platform } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 // Components
 import { ClimbingCard } from "../components/climbing-card.js";
@@ -12,15 +12,10 @@ const SafeArea = styled(SafeAreaView)`
   background-color: ${(props) => props.theme.colors.almond};
   /* android */
   ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
-  ${StatusBar.currentHeight && `padding-bottom: ${StatusBar.currentHeight * 3}px`};
 `
 const SearchContainer = styled(View)`
   padding: ${(props) => props.theme.space.lg};
   justify-content: center;
-`
-const ClimbingListContainer = styled(View)`
-  padding: ${(props) => props.theme.space.lg};
-  paddingTop: ${(props) => props.theme.space.sm};
 `
 
 export const ClimbingScreen = () => {
@@ -49,13 +44,12 @@ export const ClimbingScreen = () => {
         />
       </SearchContainer> 
       
-      <ClimbingListContainer>
         <FlatList
           data={CLIMBING_SPOTS}
           renderItem={climbingCardItem}
           keyExtractor={item => item.id}
+          contentContainerStyle={{ padding: 16 }}
         />
-      </ClimbingListContainer>
     </SafeArea>
   )
 }
