@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { View } from "react-native";
 import { Avatar, Button, Text, Card } from 'react-native-paper';
+import { Spacer } from './spacer';
 
 const StarRating = props => <Avatar.Icon {...props} icon="star" />
 
@@ -17,7 +18,6 @@ const StyledCard = styled(Card)`
 const Adddress = styled(Text)`
   font-size: ${(props) => props.theme.fontSizes.caption};
 `
-       
 const Title = styled(Text)`
   font-size: ${(props) => props.theme.fontSizes.title} /* Seems that react-native-paper is overriding? */
   color: ${(props) => props.theme.colors.darkGrey};
@@ -80,7 +80,7 @@ export const ClimbingCard = ({ name, photos, address, bestMonths, numRoutes, isO
         <Cover key={name} source={{ uri: photos[0] }}/>
         <Content>
           <Section> 
-            <Text>{bestMonths}</Text>
+              <Text>{bestMonths}</Text>
             <SectionEnd>
               <Text>{numRoutes} route{numRoutes === 1 ? '' : 's'}</Text>
             </SectionEnd>

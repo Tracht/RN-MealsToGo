@@ -3,9 +3,9 @@ import styled from "styled-components/native";
 import { StatusBar, SafeAreaView, View, FlatList } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 // Components
-import { ClimbingCard } from "../components/climbing-card.component";
+import { ClimbingCard } from "../components/climbing-card.js";
 // Data
-import { CLIMBING_SPOTS } from "../../../climbing-spot-list";
+import { CLIMBING_SPOTS } from "../climbing-spot-list";
 
 const SafeArea = styled(SafeAreaView)`
   flex: 1;
