@@ -7,6 +7,7 @@
 - Expo tooling environment
 - React-Native-Paper
 - StyledComponents
+- React Navigation
 
 ## To run locally
 - Clone the repo
