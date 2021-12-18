@@ -6,15 +6,15 @@ const getLayout = (margins, paddings, width, height, flex, flexdir, jc, ji, js, 
   // Explanation:
   // if margins !== array and is a single value, apply it to all
   // if there is no value, then give it size 0px
-  const marginTop = margins.isArray && margins[0] || margins || '0px'; 
-  const marginBottom = margins.isArray && margins[1] || margins || '0px';
-  const marginLeft = margins.isArray && margins[2] || margins || '0px';
-  const marginRight = margins.isArray && margins[3] || margins || '0px';
+  const marginTop = Array.isArray(margins) && margins[0] || margins || '0px'; 
+  const marginBottom = Array.isArray(margins) && margins[1] || margins || '0px';
+  const marginLeft = Array.isArray(margins) && margins[2] || margins || '0px';
+  const marginRight = Array.isArray(margins) && margins[3] || margins || '0px';
 
-  const paddingTop = paddings.isArray && paddings[0] || paddings || '0px';
-  const paddingBottom = paddings.isArray && paddings[1] || paddings || '0px';
-  const paddingLeft = paddings.isArray && paddings[2] || paddings || '0px';
-  const paddingRight = paddings.isArray && paddings[3] || paddings || '0px';
+  const paddingTop = Array.isArray(paddings) && paddings[0] || paddings || '0px';
+  const paddingBottom = Array.isArray(paddings) && paddings[1] || paddings || '0px';
+  const paddingLeft = Array.isArray(paddings) && paddings[2] || paddings || '0px';
+  const paddingRight = Array.isArray(paddings) && paddings[3] || paddings || '0px';
 
   const widthSize = width && `width: ${width}`;
   const heightSize = height && `height: ${height}`;
@@ -56,12 +56,12 @@ const getLayout = (margins, paddings, width, height, flex, flexdir, jc, ji, js, 
   return result;
 }
 
-const SpacerView = styled(View)`
+const ContainerView = styled(View)`
   ${(props) => props.layout};
 `;
 
-export const Spacer = ({ margins = false, paddings = false, width, height, flex, flexdir, jc, ji, js, ac, ai, as, children }) => {
+export const Container = ({ margins = false, paddings = false, width, height, flex, flexdir, jc, ji, js, ac, ai, as, children }) => {
   const theme = useTheme();
   const layout = getLayout(margins, paddings, width, height, flex, flexdir, jc, ji, js, ac, ai, as, theme);
-  return <SpacerView layout={layout}>{children}</SpacerView>;
+  return <ContainerView layout={layout}>{children}</ContainerView>;
 };

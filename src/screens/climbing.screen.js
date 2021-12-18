@@ -1,19 +1,12 @@
-import React, {useState} from "react";
-import styled from "styled-components/native";
-import { StatusBar, SafeAreaView, View, FlatList, Platform } from 'react-native';
+import React, { useState } from "react";
+import { FlatList } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 // Components
-import { ClimbingCard } from "../components/climbing-card.js";
-import { Spacer } from "../components/spacer";
+import { ClimbingCard } from "../components/ClimbingCard";
+import { Container } from "../components/Container";
+import { SafeArea } from "../components/SafeArea"
 // Data
 import { CLIMBING_SPOTS } from "../climbing-spot-list";
-
-const SafeArea = styled(SafeAreaView)`
-  flex: 1;
-  background-color: ${(props) => props.theme.colors.almond};
-  /* android */
-  ${StatusBar.currentHeight && `margin-top: ${StatusBar.currentHeight}px`};
-`
 
 export const ClimbingScreen = () => {
 
@@ -33,13 +26,13 @@ export const ClimbingScreen = () => {
 
   return (
     <SafeArea>
-        <Spacer paddings="s" jc={"center"}>
+        <Container paddings={["m", "", "m", "m"]} jc={"center"}>
           <Searchbar 
             placeholder="Start searching"
             onChangeText={onChangeSearch}
             value={searchQuery}
           />
-        </Spacer>
+        </Container>
       
         <FlatList
           data={CLIMBING_SPOTS}

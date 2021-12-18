@@ -9,7 +9,7 @@ import {
   Header, 
   HeaderEnd,
   Content
-} from "./climbing-card.styles";
+} from "./ClimbingCard.styles";
 
 export const ClimbingCard = ({ name, photos, address, bestMonths, numRoutes, isOpen }) => {
   return (
