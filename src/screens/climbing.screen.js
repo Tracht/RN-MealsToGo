@@ -26,7 +26,7 @@ export const ClimbingScreen = () => {
 
   return (
     <SafeArea>
-        <Container paddings={["m", "", "m", "m"]} jc={"center"}>
+        <Container paddings="m" jc={"center"}>
           <Searchbar 
             placeholder="Start searching"
             onChangeText={onChangeSearch}

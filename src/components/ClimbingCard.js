@@ -18,7 +18,7 @@ export const ClimbingCard = ({ name, photos, address, bestMonths, numRoutes, isO
               {isOpen ? 
                   <SuccessText type="caption">Open</SuccessText>
                 : <ErrorText type="caption">Closed</ErrorText> 
-                }
+              }
           </Container>
 
           <Cover key={name} source={{ uri: photos[0] }}/>
