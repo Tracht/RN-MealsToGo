@@ -1,13 +1,11 @@
 import React from "react";
 import { Button, Card } from 'react-native-paper';
-import { Text } from "../typography/text"
-
+// Components
+import { Container } from "./Container";
+import { BodyText, Title, Caption, SuccessText, ErrorText } from "./Text";
 import {
   ClimbingContainer, 
-  StyledCard, Adddress, Title,
-  Open, Closed, Cover, Section, SectionEnd, 
-  Header, 
-  HeaderEnd,
+  StyledCard, Cover, 
   Content
 } from "./ClimbingCard.styles";
 
@@ -15,24 +13,23 @@ export const ClimbingCard = ({ name, photos, address, bestMonths, numRoutes, isO
   return (
     <ClimbingContainer>
         <StyledCard elevation={5}>
-          <Header>
-              <Title>{name}</Title>
-            <HeaderEnd>
-                {isOpen ? <Open>Open</Open>  : <Closed>Closed</Closed> }
-            </HeaderEnd>
-          </Header>
+          <Container margins={["l","","l","l"]} flex={1} flexdir="row" ai="center" jc="space-between">
+            <Title>{name}</Title>
+              {isOpen ? 
+                  <SuccessText type="caption">Open</SuccessText>
+                : <ErrorText type="caption">Closed</ErrorText> 
+                }
+          </Container>
 
           <Cover key={name} source={{ uri: photos[0] }}/>
-
+        
           <Content>
-            <Section>
-                <Text variant="caption">{bestMonths}</Text>
-              <SectionEnd>
-                <Text variant="disabled">{numRoutes} route{numRoutes === 1 ? '' : 's'}</Text>
-              </SectionEnd>
-            </Section>
-            <Adddress>{address}</Adddress>
-          </Content>
+            <Container flex={1} flexdir="row" ai="center" jc="space-between">
+                <Caption>{bestMonths}</Caption>
+                <Caption>{numRoutes} route{numRoutes === 1 ? '' : 's'}</Caption>
+            </Container>
+            <BodyText>{address}</BodyText>
+          </Content> 
 
           <Card.Actions>
             <Button>See routes</Button>

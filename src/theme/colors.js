@@ -8,9 +8,9 @@ export const colors = {
   silver: "#F1F1F1",
   white: "#FFFFFF",
 
-  disabled: "#DEDEDE",
   almond: 'rgb(239,222,205)',
 
+  disabled: "#DEDEDE",
   error: "#D0421B",
   success: "#138000",
 }

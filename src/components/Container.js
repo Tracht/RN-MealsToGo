@@ -60,6 +60,7 @@ const ContainerView = styled(View)`
   ${(props) => props.layout};
 `;
 
+// <Container margins="m" paddings={["l", "m", "s", "s"]} />
 export const Container = ({ margins = false, paddings = false, width, height, flex, flexdir, jc, ji, js, ac, ai, as, children }) => {
   const theme = useTheme();
   const layout = getLayout(margins, paddings, width, height, flex, flexdir, jc, ji, js, ac, ai, as, theme);
