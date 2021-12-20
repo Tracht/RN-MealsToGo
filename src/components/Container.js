@@ -16,19 +16,6 @@ const getLayout = (margins, paddings, width, height, flex, flexdir, jc, ji, js, 
   const paddingLeft = Array.isArray(paddings) && paddings[2] || paddings || '0px';
   const paddingRight = Array.isArray(paddings) && paddings[3] || paddings || '0px';
 
-  const widthSize = width && `width: ${width}`;
-  const heightSize = height && `height: ${height}`;
-
-  const flexSize = flex && `flex: ${flex}`;
-  const flexDirection = flexdir && `flex-direction: ${flexdir}`;
-
-  const justifyContent = jc && `justify-content: ${jc}`;
-  const justifyItems = ji && `justify-items: ${ji}`;
-  const justifySelf = js && `justify-self: ${js}`;
-  const alignContent = ac && `align-content: ${ac}`;
-  const alignItems = ai && `align-items: ${ai}`;
-  const alignSelf = as && `align-self: ${as}`;
-
   const result = `
     margin-top: ${theme.sizes[marginTop]};
     margin-bottom: ${theme.sizes[marginBottom]};
@@ -40,18 +27,19 @@ const getLayout = (margins, paddings, width, height, flex, flexdir, jc, ji, js, 
     padding-left: ${theme.sizes[paddingLeft]};
     padding-right: ${theme.sizes[paddingRight]};
 
-    ${flexSize ? flexSize : ''}
-    ${flexDirection ? flexDirection : ''}
+    ${width ? `width: ${width}` : ""};
+    ${height ? `height: ${height}` : ""};
 
-    ${widthSize ? widthSize : ''}
-    ${heightSize ? heightSize : ''}
+    ${flex ? `flex: ${flex}` : ""};
+    ${flexdir ? `flex-direction: ${flexdir}` : ""};
 
-    ${alignContent ? alignContent: ''}
-    ${alignItems ? alignItems : ''}
-    ${alignSelf ? alignSelf : ''}
-    ${justifyContent ? justifyContent: ''}
-    ${justifyItems ? justifyItems: ''}
-    ${justifySelf ? justifySelf: ''}
+    ${jc ? `justify-content: ${jc}` : ""}
+    ${ji ? `justify-items: ${ji}` : ""}
+    ${js ? `justify-self: ${js}` : ""}
+
+    ${ac ? `align-content: ${ac}` : ""}
+    ${ai ? `align-items: ${ai}` : ""}
+    ${as ? `align-self: ${as}` : ""}
   `
   return result;
 }
