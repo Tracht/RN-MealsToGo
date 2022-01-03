@@ -16,5 +16,6 @@
 - Choose to run the App from one of the available options.
 
 ## Screenshots
-<img width="369" alt="Screenshot 2021-12-15 at 17 36 15" src="https://user-images.githubusercontent.com/28805811/146236700-2c615e37-1927-45d5-898f-f897552652d0.png">
+iOS and android
 
+![Screenshot 2021-12-20 at 10 59 08](https://user-images.githubusercontent.com/28805811/146756957-39b52e49-218c-4000-a4e0-e25e798b1e97.png)
