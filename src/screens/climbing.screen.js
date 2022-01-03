@@ -13,6 +13,8 @@ export const ClimbingScreen = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const onChangeSearch = query => setSearchQuery(query);
 
+  const searchableList = searchQuery && CLIMBING_SPOTS.filter(i => i.address.includes(searchQuery));
+
   const climbingCardItem = ({ item }) => ( // must be "item"
     <ClimbingCard 
       name={item.name}
@@ -28,14 +30,14 @@ export const ClimbingScreen = () => {
     <SafeArea>
         <Container paddings="m" jc={"center"}>
           <Searchbar 
-            placeholder="Start searching"
+            placeholder="Search by country"
             onChangeText={onChangeSearch}
             value={searchQuery}
           />
         </Container>
       
         <FlatList
-          data={CLIMBING_SPOTS}
+          data={searchQuery ? searchableList : CLIMBING_SPOTS}
           renderItem={climbingCardItem}
           keyExtractor={item => item.id}
           contentContainerStyle={{ padding: 16 }}

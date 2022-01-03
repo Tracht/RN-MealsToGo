@@ -5,7 +5,7 @@ import { Text } from "react-native";
 import { ThemeProvider } from 'styled-components/native'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons'; 
 // Theme
 import { theme } from "./src/theme";
 // Components
@@ -14,6 +14,32 @@ import { SafeArea } from './src/components/SafeArea';
 import ExpoStatusBar from 'expo-status-bar/build/ExpoStatusBar';
 
 const Tab = createBottomTabNavigator();
+
+const TAB_ICON = {
+  Climbing: "home",
+  Settings: "settings",
+  Map: "map",
+}
+
+const createScreenOptions = ({ route }) => {
+  const iconName = TAB_ICON[route.name];
+  return {
+    tabBarIcon: ({ size, color }) => {
+      <Feather name={iconName} size={size} color={color} />
+    }
+  }
+}
+
+const tabConfig = {
+  "tabBarActiveTintColor": "tomato",
+  "tabBarInactiveTintColor": "gray",
+  "tabBarStyle": [
+    {
+      "display": "flex"
+    },
+    null
+  ]
+}
 
 const Settings = () => <SafeArea><Text>Settings</Text></SafeArea>
 const Map = () => <SafeArea><Text>Map</Text></SafeArea>
@@ -26,26 +52,7 @@ export default function App() {
         <ThemeProvider theme={theme}>
           <NavigationContainer> 
             <Tab.Navigator
-              screenOptions={({ route }) => ({
-                tabBarIcon: ({ color, size }) => {
-                  let iconName;
-  
-                  if (route.name === "Climbing") {
-                    iconName = "md-home";
-                  } else if (route.name === "Settings") {
-                    iconName = "md-settings";
-                  } else if (route.name === "Map") {
-                    iconName = "md-map";
-                  }
-  
-                  // You can return any component that you like here!
-                  return <Ionicons name={iconName} size={size} color={color} />;
-                },
-              })}
-              tabBarOptions={{
-                activeTintColor: "tomato",
-                inactiveTintColor: "gray",
-              }}
+              screenOptions={createScreenOptions, tabConfig}
             >
               <Tab.Screen name="Map" component={Map} />
               <Tab.Screen name="Climbing" component={ClimbingScreen} />
